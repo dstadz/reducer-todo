@@ -1,24 +1,16 @@
 import React, { useReducer, useState } from "react";
 import ReactDOM from "react-dom";
 import './App.css';
+import { todoReducer, initialState } from './reducers/reducer'
 
-const initialState = [
-  {
-    item:'finish app',
-    completed:false
-  },{
-    item:'save the world',
-    completed:false,
-  },{
-    item:'go to shool',
-    completed:false
-  }
-]
 
 function App() {
 
   const [todos, dispatch] = useReducer(todoReducer, initialState)
 
+  const handleChange = e => {
+
+  }
   
   return (
     <div className="App">
@@ -27,7 +19,6 @@ function App() {
        type='text'
        name='name'
        onChange={handleChange}
-       value={todo}
        />
      </form>
     </div>
