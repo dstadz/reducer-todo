@@ -1,6 +1,8 @@
 import React, { useReducer, useState } from "react";
 import ReactDOM from "react-dom";
 import './App.css';
+import TodoForm from './components/TodoForm'
+import TodoList from './components/TodoForm'
 import { todoReducer, initialState } from './reducers/reducer'
 
 
@@ -14,13 +16,8 @@ function App() {
   
   return (
     <div className="App">
-     <form>
-       <input
-       type='text'
-       name='name'
-       onChange={handleChange}
-       />
-     </form>
+     <TodoForm />
+     <TodoList />
     </div>
   );
 }
