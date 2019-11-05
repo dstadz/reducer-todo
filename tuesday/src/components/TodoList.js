@@ -1,23 +1,21 @@
-import React from 'react'
+import React, { useReducer, useState } from "react";
 import Todo from './Todo'
-import './Todo.css'
+import {todoReducer, initialState} from '../reducers/reducer'
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
+const TodoList = () => {
+  const [todos, dispatch] = useReducer(todoReducer, initialState)
 
-const TodoList = props => {
-  // const sortedList = props.groceries.sort((a, b) => a.purchased - b.purchased);
+  console.log(todos)
   return (
     <div className="todo-list">
-      {props.todos.map(todo => (
+      {todos.map(todo => (
         <Todo
           key={todo.id}
           todo={todo}
-          toggleCompleted={props.toggleCompleted}
         />
       ))}
-      <button className="clear-btn" onClick={props.clearCompleted}>
-        Clear Completed
-      </button>
+      
     </div>
   );
 };

@@ -5,19 +5,26 @@ export const initialState = [
   {
     item:'finish app',
     completed:false,
-    id: Date.now
+    id: 1
   },{
     item:'save the world',
     completed:false,
-    id: Date.now
+    id: 2
   },{
-    item:'go to shool',
+    item:'go to school',
     completed:false,
-    id: Date.now
+    id: 3
   }
 ]
-
+const todos = [...initialState]
 export const todoReducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return{...todos}
+    //case 'CLEAR_COMPLETED':
+    //case 'TOGGLE_COMPLETE :
+
+  }
   return
 }
 
