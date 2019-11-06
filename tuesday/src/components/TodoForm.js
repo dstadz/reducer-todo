@@ -1,4 +1,6 @@
 import React, { useState, useReducer } from "react";
+import Todo from './Todo'
+
 import {todoReducer, initialState} from '../reducers/reducer'
 
 
@@ -6,34 +8,40 @@ const TodoForm = () => {
   const [todos, dispatch] = useReducer(todoReducer, initialState)
   const [newTodo, setNewTodo] = useState('')
 
-  console.log(newTodo)
 
   const handleChange = e => {
     setNewTodo(e.target.value);
   };
 
-  const AddTodo = () => {
-    console.log('addtodos')
-    dispatch({type:'ADD_TODO', payload:todos})
-  }
+ 
   const handleSubmit = e => {
     e.preventDefault()
-    AddTodo(newTodo)
-    this.setState({ newTodo:''})
+    dispatch({type:'ADD_TODO', payload:newTodo})
+    setNewTodo('')
   }
 
 
   return(
-    <form onSubmit={ handleSubmit } >
-      <input 
-        type="text" 
-        name="todo"
-        id="todo" 
-        value={ newTodo } 
-        onChange={ handleChange } 
-      />
-        <button onClick={AddTodo}>Add Todo</button>
-    </form>
+    <div>
+      <div className="todo-list">
+        {todos.map(todo => (
+          <Todo
+            key={todo.id}
+            todo={todo}
+          />
+        ))}
+      </div>
+      <form>
+        <input 
+          type="text" 
+          name="todo"
+          id="todo" 
+          value={ newTodo } 
+          onChange={ handleChange } 
+        />
+        <button onClick={ handleSubmit }>Add Todo</button>
+      </form>
+    </div>
   )
 }
 

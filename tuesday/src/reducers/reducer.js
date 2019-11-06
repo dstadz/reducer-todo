@@ -21,14 +21,22 @@ const todos = [...initialState]
 
 
 export const todoReducer = (state, action) => {
-  console.log(state)
   switch (action.type) {
     case 'ADD_TODO':
-      return{...todos, newTodo:action.payload}
-    //case 'CLEAR_COMPLETED':
-    //case 'TOGGLE_COMPLETE :
-
-  }
+      const next = {
+        item:action.payload,
+        completed:false,
+        id:Date.now()
+      }
+      return[...state, next]
+      //case 'CLEAR_COMPLETED':
+      //case 'TOGGLE_COMPLETE :
+      default:
+        throw new Error("No action matched!");
+        
+        
+      }
+      console.log(state)
   return
 }
 
