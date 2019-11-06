@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+//import React, { useReducer, useState } from "react";
 
 
 export const initialState = [
@@ -17,10 +17,14 @@ export const initialState = [
   }
 ]
 const todos = [...initialState]
+
+
+
 export const todoReducer = (state, action) => {
+  console.log(state)
   switch (action.type) {
     case 'ADD_TODO':
-      return{...todos}
+      return{...todos, newTodo:action.payload}
     //case 'CLEAR_COMPLETED':
     //case 'TOGGLE_COMPLETE :
 

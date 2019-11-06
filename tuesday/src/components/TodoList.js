@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import Todo from './Todo'
 import {todoReducer, initialState} from '../reducers/reducer'
 // your components will all go in this `component` directory.
